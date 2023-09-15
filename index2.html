@@ -26,20 +26,22 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
+      <li>Item 5</li>
     </ul>
    </div>
   </div>
 <script>
-     const li=document.getElementsByClassName("list-group-item");
-     console.log(li)
-     li[2].style.backgroundColor="green";
-     for(let i=0;i<li.length;i++){
-      li[i].style.fontWeight="bold";
+    //  const li=document.getElementsByClassName("list-group-item");
+    //  console.log(li)
+    //  li[2].style.backgroundColor="green";
+    //  for(let i=0;i<li.length;i++){
+    //   li[i].style.fontWeight="bold";
+    //  }
+     const li1=document.getElementsByTagName("li");
+     console.log(li1)
+     for(let i=0;i<li1.length;i++){
+      li1[i].style.fontWeight="bold";
      }
-    //  li[0].style.fontWeight="bold";
-    //  li[1].style.fontWeight="bold";
-    //  li[2].style.fontWeight="bold";
-    //  li[3].style.fontWeight="bold";
 </script>
 </body>
 </html>
