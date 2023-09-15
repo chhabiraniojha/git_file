@@ -26,7 +26,7 @@
       <li class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
       <li class="list-group-item">Item 4</li>
-      <li>Item 5</li>
+      <!-- <li>Item 5</li> -->
     </ul>
    </div>
   </div>
@@ -37,11 +37,19 @@
     //  for(let i=0;i<li.length;i++){
     //   li[i].style.fontWeight="bold";
     //  }
-     const li1=document.getElementsByTagName("li");
-     console.log(li1)
-     for(let i=0;i<li1.length;i++){
-      li1[i].style.fontWeight="bold";
+     const li=document.querySelectorAll(".list-group-item");
+     console.log(li)
+     li[1].style.backgroundColor="green";
+     const odd=document.querySelectorAll(".list-group-item:nth-child(odd)");
+     for(let i=0;i<odd.length;i++){
+      odd[i].style.backgroundColor="green";
      }
+    //  console.log(li1)
+    //  for(let i=0;i<li1.length;i++){
+    //   li1[i].style.fontWeight="bold";
+    //  }
+    // li1[1].style.backgroundColor="green"
+    // li1[2].style.display="none";
 </script>
 </body>
 </html>
