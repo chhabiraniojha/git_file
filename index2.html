@@ -33,10 +33,13 @@
      const li=document.getElementsByClassName("list-group-item");
      console.log(li)
      li[2].style.backgroundColor="green";
-     li[0].style.fontWeight="bold";
-     li[1].style.fontWeight="bold";
-     li[2].style.fontWeight="bold";
-     li[3].style.fontWeight="bold";
+     for(let i=0;i<li.length;i++){
+      li[i].style.fontWeight="bold";
+     }
+    //  li[0].style.fontWeight="bold";
+    //  li[1].style.fontWeight="bold";
+    //  li[2].style.fontWeight="bold";
+    //  li[3].style.fontWeight="bold";
 </script>
 </body>
 </html>
