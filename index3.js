@@ -13,8 +13,8 @@ function onSubmit(e) {
     const newItem2 = document.getElementById('itemDesc').value;
     const li = document.createElement("li");
     li.className = "list-group-item";
-    li.appendChild(document.createTextNode(newItem));
-    li.appendChild(document.createTextNode(newItem2));
+    li.appendChild(document.createTextNode(newItem +" "+newItem2));
+    // li.appendChild(document.createTextNode(newItem2));
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "btn btn-danger btn-sm float-right delete";
     deleteBtn.appendChild(document.createTextNode("X"));
