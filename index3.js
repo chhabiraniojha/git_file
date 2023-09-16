@@ -24,6 +24,9 @@ function onSubmit(e) {
     li.appendChild(edit);
     li.appendChild(deleteBtn);
     listItem.appendChild(li);
+    localStorage.setItem("title",newItem)
+    localStorage.setItem("desc",newItem2)
+
 
 };
 
