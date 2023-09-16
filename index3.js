@@ -24,8 +24,17 @@ function onSubmit(e) {
     li.appendChild(edit);
     li.appendChild(deleteBtn);
     listItem.appendChild(li);
-    localStorage.setItem("title",newItem)
-    localStorage.setItem("desc",newItem2)
+    // localStorage.setItem("title",newItem)
+    // localStorage.setItem("desc",newItem2)
+    // console.log(localStorage.getItem("desc"))
+    // const itemDetails="itemDetails"+newItem;
+    
+    const new_item={
+        title:newItem,
+        desc:newItem2
+    }
+    const newItem_string=JSON.stringify(new_item);
+    localStorage.setItem("itemDetails",newItem_string)
 
 
 };
