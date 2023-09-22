@@ -1,5 +1,5 @@
-const form=document.getElementById("form_element");
-const listItem=document.getElementById("item");
+const form=document.getElementById("addForm");
+const listItem=document.getElementById("items");
 form.addEventListener("submit",onSubmit);
 listItem.addEventListener("click",removeItem);
 listItem.addEventListener("click",editItem);
@@ -8,28 +8,32 @@ listItem.addEventListener("click",editItem);
 
 function onSubmit(e){
     e.preventDefault();
-    const name=document.getElementById("name").value;
-    const email=document.getElementById("floatingInput").value;
-    const phone=document.getElementById("phone").value;
+    const expenceAmount=document.getElementById("item").value;
+    const expenceDesc=document.getElementById("itemDesc").value;
+    const expenceCategory=document.getElementById("category").value;
     const li=document.createElement("li");
+    li.className = "list-group-item";
     const deleteBtn=document.createElement("button")
     deleteBtn.id="delete";
+    deleteBtn.className="btn btn-danger  btn-sm float-right";
     deleteBtn.appendChild(document.createTextNode("delete"))
     const editBtn=document.createElement("button")
     editBtn.id="edit";
+    editBtn.className="btn btn-primary btn-sm float-right";
     editBtn.appendChild(document.createTextNode("edit"))
-    const details=email;
-    const userDetails={
-        name:name,
-        email:email,
-        phone:phone
+    const details=expenceAmount;
+    const expenceDetails={
+        expenceAmount:expenceAmount,
+        expenceDesc:expenceDesc,
+        expenceCategory:expenceCategory
 
     }
-    const userdetails_string=JSON.stringify(userDetails);
-    localStorage.setItem(details,userdetails_string);
+    const expencedetails_string=JSON.stringify(expenceDetails);
+    localStorage.setItem(details,expencedetails_string);
     
-    li.appendChild(document.createTextNode(email));
-    li.appendChild(document.createTextNode(phone));
+    li.appendChild(document.createTextNode(expenceAmount));
+    li.appendChild(document.createTextNode("- "+expenceDesc));
+    li.appendChild(document.createTextNode("- "+expenceCategory));
     listItem.appendChild(li);
     li.appendChild(deleteBtn)
     li.appendChild(editBtn)
@@ -55,18 +59,15 @@ function editItem(e){
             const li = e.target.parentElement;
             
             const user_details=JSON.parse(localStorage.getItem(li.firstChild.textContent));
-            document.getElementById("name").value=user_details.name;
-            document.getElementById("floatingInput").value=user_details.email;
-            document.getElementById("phone").value=user_details.phone;
+            document.getElementById("item").value=user_details.expenceAmount;
+            document.getElementById("itemDesc").value=user_details.expenceDesc;
+            document.getElementById("category").value=user_details.expenceCategory;
             
             listItem.removeChild(li);
             localStorage.removeItem(li.firstChild.textContent)
             
         }
-
-
-   
-    }
+}
 
 
 
@@ -77,18 +78,21 @@ function editItem(e){
             
             let items=JSON.parse(localStorage.getItem(ls[i]))
             const li=document.createElement("li");
+            li.className = "list-group-item";
             const deleteBtn=document.createElement("button")
             deleteBtn.id="delete";
+            deleteBtn.className="btn btn-danger btn-sm float-right";;
             deleteBtn.appendChild(document.createTextNode("delete"))
             const editBtn=document.createElement("button")
             editBtn.id="edit";
+            editBtn.className="btn btn-primary btn-sm float-right";
             editBtn.appendChild(document.createTextNode("edit"))
-            li.appendChild(document.createTextNode(`${items.email}`));
-            li.appendChild(document.createTextNode(`- ${items.phone}`));
+            li.appendChild(document.createTextNode(`${items.expenceAmount}`));
+            li.appendChild(document.createTextNode(`- ${items.expenceDesc}`));
+            li.appendChild(document.createTextNode(`- ${items.expenceCategory}`));
             li.appendChild(deleteBtn)
             li.appendChild(editBtn)
             listItem.appendChild(li);
         }
     }
     onReload();
-  
